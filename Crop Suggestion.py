@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 
-
 userph=[[5.3]]
 usernx=[[53]]
 userpx=[[65]]
