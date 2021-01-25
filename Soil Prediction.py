@@ -10,16 +10,16 @@ import pprint
 dataset = pd.read_csv('SIH.csv')
 X = dataset.iloc[:, 0:2].values
 y1= dataset.iloc[:, 3:4].values
-y2=dataset.iloc[:,4:5].values
-y3=dataset.iloc[:,5:6].values
-y4=dataset.iloc[:,6:7].values
+y2=dataset.iloc[:,5:6].values
+y3=dataset.iloc[:,6:7].values
+y4=dataset.iloc[:,7:8].values
 
 #Getting the lat and long and initialising the final result
 
 g = geocoder.ip('me')
 lat=g.latlng[0]
 long=g.latlng[1]
-location=[[lat,long]]
+location=[[long,lat]]
 final_result=[]
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
@@ -36,22 +36,23 @@ y_K = sc4.fit_transform(y4)
 
 from sklearn.neighbors import KNeighborsRegressor as KNR
 regEC=KNR(n_neighbors=8, weights='distance')
-regEC.fit(XEC_train,yEC_train)
+regEC.fit(X,y_EC)
 
 regP=KNR(n_neighbors=8, weights='distance')
-regP.fit(XP_train,yP_train)
+regP.fit(X,y_P)
 
 from sklearn import ensemble
 params = {'n_estimators': 500, 'max_depth': 4, 'min_samples_split': 2,
           'learning_rate': 0.01, 'loss': 'ls'}
 regN = ensemble.GradientBoostingRegressor(**params)
-regN.fit(XN_train,yN_train)
+regN.fit(X,y_N)
 
 from xgboost import XGBClassifier
 regK = XGBClassifier( max_depth=2,gamma=2,eta=0.8,reg_alpha=0.5,reg_lambda=0.5)
-regK.fit(XK_train,yK_train)
+regK.fit(X,y_K)
 
 EC=(regEC.predict(location))
+print(EC)
 EC=list(sc1.inverse_transform(EC))
 final_result.extend(EC)
 
@@ -64,9 +65,10 @@ P=regP.predict(location)
 P=list(sc3.inverse_transform(P))
 final_result.extend(P)
 
-location=np.array([[lat,long]])
-K=regK.predict(b)
+
+K=regK.predict(location)
 K=list(sc4.inverse_transform(K))
 final_result.extend(K)
 final_result = [ '%.3f' % elem for elem in final_result ]
 final_result = [float(i) for i in final_result] 
+# final_result is of the form ['EC','N','P','K']
