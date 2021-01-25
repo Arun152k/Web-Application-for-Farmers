@@ -1,14 +1,13 @@
 # Web-based-Crop-Guidance
-1.Collected the soil and weather data set of Kanchipuram district and developed a Machine Learning program to predict the suitable crop based on the geographical location of the farmer.
 
-2.Pesticide suggestion based on the crop suggested.
+The website developed by us has the following features:
+  * A portal for the farmers to login/signup.
+  * Predicts the soil contents based on the farmer's location.
+  * Suggests crops to the farmers, based on the predicted soil contents and crop season.
+  * Suggests pesticides to the farmer based on the crop choosen.
+  * Sending weather updates to the farmer through SMS.
+  * A simple page for farmers to keep track of their loans.
+  * Displaying real time tweets of agriculture related twitter accounts to ensure the farmer stays up to date with agriculture related news.
 
-3.Sending weather updates to farmers through SMS using OpenWeatherMap API and fast2sms API.
+The webpage was primarily built using Flask and database
 
-4.Displaying real time tweets of agriculture related twitter accounts to ensure the farmer stays up to date with agriculture related news.
-
-5.The website was built primarily using Flask, but is currently undergoing improvement.
-
-6.This is a group project.
-
-7.A proper documentation of the project would be updated later.
