@@ -37,6 +37,7 @@ max_humx=data.iloc[:,10:11].values
 min_rainx=data.iloc[:,7:8].values
 max_rainx=data.iloc[:,8:9].values
 
+# Scaling columns
 from sklearn.preprocessing import StandardScaler
 
 sc1 = StandardScaler()
@@ -94,7 +95,7 @@ max_rainx1=max_rainx1.reshape(-1,1)
 max_rainx1 = sc9.fit_transform(max_rainx1)
 max_rainx1= sc9.transform(max_rainx1)
 
-
+# Finding rmse of the scaled columns, error_row contains the iterated error through each crop 
 error_row=[]
 for i in range(max_rows-1):
     error=float(pow((Nx1[i][0]-Nx1[max_rows][0]),2)+pow((Px1[i][0]-Px1[max_rows][0]),2)+pow((Kx1[i][0]-Kx1[max_rows][0]),2))
