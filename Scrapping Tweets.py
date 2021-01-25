@@ -14,7 +14,7 @@ if (api):
 else:
     print("Failed")
  
-id_list=[25073877, 939091] #add the id's of twitter pages you want to get here. I randomly used trump and biden here.
+id_list=[25073877, 939091] #add the id's of twitter pages you want to get here. I used trump's and biden's Twitter handle here.
 individual_tweet_list=[]  # the tweets of 1 particular ID or page is stored here and replaced
 final_tweet_list=[]
 for i in range(len(id_list)):
@@ -27,4 +27,4 @@ for i in range(len(id_list)):
         text = re.sub(r'[^\x00-\x7F]+',' ', text)
         print(text) 
         individual_tweet_list.append(text)
-    final_tweet_list.append(individual_tweet_list) # This is the final answer. It is a 2D list. First row contains the tweets of first user  
+    final_tweet_list.append(individual_tweet_list) # This is the final answer. It is a 2D list. First row contains the tweets of first user.  
