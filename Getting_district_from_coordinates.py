@@ -18,5 +18,6 @@ if __name__=="__main__":
     lat=g.latlng[0]
     long=g.latlng[1]
     coordinates =str(lat)+','+str(long)
+    # reverseGeocode to find the city/district the coordinates belongs to
     reverseGeocode(coordinates)  
 
