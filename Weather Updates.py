@@ -24,12 +24,12 @@ while running and red==0:
 
                 # Passed the validation test
             red+=1
-            g = geocoder.ip('me') #This line gets your address
+            g = geocoder.ip('me') #This line gets your address (coordinates)
             lat=g.latlng[0]
             long=g.latlng[1]
             coordinates =str(lat)+','+str(long)
             geolocator = Nominatim(timeout=3)
-            loc=geolocator.reverse(coordinates,language='en')
+            loc=geolocator.reverse(coordinates,language='en') #This line gets your city based on the coordinates
             loc=loc.raw
             city = str(loc['address']['city'])
             if city.lower() == 'sf':
@@ -168,6 +168,7 @@ while running and red==0:
 
         elif flag>11:
             break
+            
 #The message informing the weather description for two days is sent to the number in the position of YOUR NUMBER
         
 response = requests.request("POST", url, data="sender_id=FSTSMS&message={}&language=english&route=p&numbers=YOUR NUMBER".format(c), headers=headers)    
