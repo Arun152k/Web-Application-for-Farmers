@@ -9,10 +9,9 @@ import pprint
 # Importing the dataset
 dataset = pd.read_csv('SIH.csv')
 X = dataset.iloc[:, 0:2].values
-y1= dataset.iloc[:, 3:4].values
-y2=dataset.iloc[:,5:6].values
-y3=dataset.iloc[:,6:7].values
-y4=dataset.iloc[:,7:8].values
+y1=dataset.iloc[:,5:6].values
+y2=dataset.iloc[:,6:7].values
+y3=dataset.iloc[:,7:8].values
 
 #Getting the lat and long and initialising the final result
 
@@ -28,16 +27,12 @@ X=sc.fit_transform(X)
 sc1=StandardScaler()
 sc2=StandardScaler()
 sc3=StandardScaler()
-sc4=StandardScaler()
-y_EC = sc1.fit_transform(y1)
-y_N = sc2.fit_transform(y2)
-y_P = sc3.fit_transform(y3)
-y_K = sc4.fit_transform(y4)
+
+y_N = sc1.fit_transform(y1)
+y_P = sc2.fit_transform(y2)
+y_K = sc3.fit_transform(y3)
 
 from sklearn.neighbors import KNeighborsRegressor as KNR
-regEC=KNR(n_neighbors=8, weights='distance')
-regEC.fit(X,y_EC)
-
 regP=KNR(n_neighbors=8, weights='distance')
 regP.fit(X,y_P)
 
@@ -51,24 +46,20 @@ from xgboost import XGBClassifier
 regK = XGBClassifier( max_depth=2,gamma=2,eta=0.8,reg_alpha=0.5,reg_lambda=0.5)
 regK.fit(X,y_K)
 
-EC=(regEC.predict(location))
-print(EC)
-EC=list(sc1.inverse_transform(EC))
-final_result.extend(EC)
-
 N=(regN.predict(location))
-N=list(sc2.inverse_transform(N))
+N=list(sc1.inverse_transform(N))
 final_result.extend(N)
 
 
 P=regP.predict(location)
-P=list(sc3.inverse_transform(P))
+P=list(sc2.inverse_transform(P))
 final_result.extend(P)
 
 
 K=regK.predict(location)
-K=list(sc4.inverse_transform(K))
+K=list(sc3.inverse_transform(K))
 final_result.extend(K)
 final_result = [ '%.3f' % elem for elem in final_result ]
 final_result = [float(i) for i in final_result] 
-# final_result is of the form ['EC','N','P','K']
+# final_result is of the form ['N','P','K']
+
