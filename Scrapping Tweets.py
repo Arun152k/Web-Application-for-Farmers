@@ -1,10 +1,11 @@
 import re
 import json
 import tweepy
-consumer_key="5tlYTpVNtcxNR1tmPTcgMBC0j"
-consumer_secret="wVE3fy3v6340sHINjsJ2LVj6lmxxWPuo6KgALIMkUhlTu5lH4"
-access_token="1002907998923774093313-fCET9YfrjgVJLe1gZy1n8O4mnArToO"
-access_token_secret="g7GBsQZYagufbl12QX5QXFSCER4mKyp5IVdOMcVKvE"
+consumer_key="Insert_consumer_key_here"
+consumer_secret="Insert_consumer_secret"
+access_token="Insert_access_token"
+access_token_secret="Insert_access_token_secret"
+
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
@@ -12,6 +13,7 @@ if (api):
     print("Login Success")
 else:
     print("Failed")
+ 
 id_list=[25073877, 939091] #add the id's of twitter pages you want to get here. I randomly used trump and biden here.
 individual_tweet_list=[]  # the tweets of 1 particular ID or page is stored here and replaced
 final_tweet_list=[]
