@@ -7,9 +7,9 @@ import geopy
 import geocoder
 from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
-api_key = 'c7d3a4f8990afb4408e75b2f232744d6'
-api_call = 'https://api.openweathermap.org/data/2.5/forecast?appid=' + api_key
 
+api_key = 'Insert_your_API_key'
+api_call = 'https://api.openweathermap.org/data/2.5/forecast?appid=' + api_key
 running = True
 flag=0
 red=0
