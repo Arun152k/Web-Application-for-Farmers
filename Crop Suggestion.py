@@ -1,29 +1,18 @@
 import pandas as pd
 import numpy as np
 
+# Providing random values
 userph=[[5.3]]
 usernx=[[53]]
 userpx=[[65]]
 userkx=[[89]]
 
-"""from datetime import date
-today = date.today()
-d1 = int(today.strftime("%m"))
-if(d1>1 and d1<7):
-    csvname="summer.csv"
-    userrainx=[[108]]
-    usertempx=[[32]]
-    userhumx=[[75]]
-else:
-    csvname="monsoon.csv"
-    userrainx=[[130]]
-    usertempx=[[20]]
-    userhumx=[[80]]
-"""
+
 csvname="monsoon.csv"
 userrainx=[[130]]
 usertempx=[[20]]
 userhumx=[[80]]
+
 data=pd.read_csv(csvname)
 data.drop(data.columns[data.columns.str.contains('unnamed',case = False)],axis = 1, inplace = True)
 max_rows=len(data)
