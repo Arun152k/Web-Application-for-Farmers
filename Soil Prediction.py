@@ -1,3 +1,4 @@
+# Predicts soil contents (N,P,K) based on the coordinates (latitude,longitude).
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
