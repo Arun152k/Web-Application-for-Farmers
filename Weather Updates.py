@@ -1,7 +1,7 @@
+# Gathers the weather information of the detected district and sends it as an SMS. 
+
 import requests, json
 import time
-from requests.exceptions import Timeout, ConnectionError
-from urllib3.exceptions import ReadTimeoutError
 import json
 import geopy
 import geocoder
