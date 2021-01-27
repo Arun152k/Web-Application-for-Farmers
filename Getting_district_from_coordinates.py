@@ -1,3 +1,5 @@
+# This program detects your coordinates and returns the city/district the coordinates belonging to.
+
 import geocoder
 import reverse_geocoder as rg
 import geopy
