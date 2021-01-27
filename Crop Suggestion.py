@@ -1,3 +1,5 @@
+# Suggesting crops based on the soil predicted.
+
 import pandas as pd
 import numpy as np
 
