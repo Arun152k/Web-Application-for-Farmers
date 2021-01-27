@@ -10,6 +10,6 @@ The website developed by us has the following features:
   * Scrapping tweets from agriculture related twitter accounts and displaying it in the webpage to ensure the farmer stays up to date with agriculture related news.
 
 The webpage was primarily built using Flask and sqlite database is used to store the details of farmers as well as the list of pesticides.
-'Website.py' consists of the code to run the website in localhost. The other python files uploaded serves to run the individual features of the website in a stand-alone manner. 
+'Website.py' consists of the code to run the website in localhost. The other python files uploaded serves to run the individual features of the website in a stand-alone manner. The datasets used ('soil.csv', 'monsoon.csv') are also uploaded.
 
  
