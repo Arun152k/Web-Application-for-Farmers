@@ -1,3 +1,5 @@
+# Scraps the most recent 5 tweets tweeted by the user.
+
 import re
 import json
 import tweepy
@@ -6,7 +8,7 @@ consumer_secret="Insert_consumer_secret"
 access_token="Insert_access_token"
 access_token_secret="Insert_access_token_secret"
 
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth = tweepy.OAuthHandler(consumer_key,consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 if (api):
