@@ -4,7 +4,6 @@ import geopy
 from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
 
-
 def reverseGeocode(coordinates):
     geolocator = Nominatim(timeout=3)
     loc=geolocator.reverse(coordinates,language='en')
@@ -14,7 +13,7 @@ def reverseGeocode(coordinates):
     
 # Driver function
 if __name__=="__main__":
-    g = geocoder.ip('me') #This line gets your address
+    g = geocoder.ip('me') #This line gets your address(coordinates)
     lat=g.latlng[0]
     long=g.latlng[1]
     coordinates =str(lat)+','+str(long)
