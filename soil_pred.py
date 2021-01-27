@@ -1,3 +1,5 @@
+# Predicts the soil contents (N,P,K) based on location (coordinates) using Machine Learning Algorithms.
+
 import numpy as np
 import pandas as pd
 import geocoder
