@@ -1,4 +1,4 @@
-# Web Framework for Farmers 
+# Web Application for Farmers 
 
 This is our attempt at the SIH 2020 inter-college finals.
 
